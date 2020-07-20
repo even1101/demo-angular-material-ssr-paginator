@@ -5,7 +5,8 @@ import { merge } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 /**
- * @title Configurable paginator
+ * Date: 2020/07/20 
+ * Name: Even 
  */
 @Component({
   selector: 'paginator-configurable-example',
