@@ -42,7 +42,6 @@ export class PaginatorConfigurableExample implements AfterViewInit {
   }
     private initBtnPages() {
     if (this.demoPages) {
-      this.setBtnDefaultText();
       const hasShowCustomPageButtonsAttr = this.demoPages.nativeElement.attributes.showcustompagebuttons;
       const isShowBtnPages = this.demoPages.nativeElement.attributes.showcustompagebuttons.value === 'false' ? false : true;
       // showCustomPageBtns = true
@@ -52,7 +51,7 @@ export class PaginatorConfigurableExample implements AfterViewInit {
         let showMode = this.demoPages.nativeElement.attributes.showcustommode.value === '1' ? 1 : 0;
         showMode = hasShowCustomModeAttr === undefined ? defaultMode : showMode;
         // default = 0, 0 Render all Btns, 1 Render the buttons you set.
-        this.createBtnRange(showMode);
+        this.createBtnRange(this.defaultMode);
       }
     }
   }
@@ -85,8 +84,8 @@ export class PaginatorConfigurableExample implements AfterViewInit {
       this.addedBtns.length = 0;
     }
     if (isRenderMode === 0) {
-      for (let i = 0; i <= totalPage; i++) {
-        this.createBtn(parentNode, refNode, i);
+      for (let i = 0; i < totalPage; i++) {
+        this.createBtn(parentNode, refNode, i+1);
       }
     } else {
       // tslint:disable-next-line:prefer-const
