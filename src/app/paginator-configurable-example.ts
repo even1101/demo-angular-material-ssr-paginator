@@ -89,7 +89,9 @@ export class PaginatorConfigurableExample implements AfterViewInit {
       }
     } else {
       // tslint:disable-next-line:prefer-const
-      let { start, end } = this.calculationGapBtn(totalPage);
+      // let { start, end } = this.calculationGapBtn(totalPage);
+      let start = this.myPaginator.pageIndex - this.gap < 1 ? 1 :  this.myPaginator.pageIndex - this.gap;
+      const end = this.myPaginator.pageIndex + this.gap > totalPage ? totalPage : this.myPaginator.pageIndex + this.gap;
       for ( start; start <= end; start++) {
         this.createBtn(parentNode, refNode, start);
       }
