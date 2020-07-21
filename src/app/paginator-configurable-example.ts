@@ -42,14 +42,14 @@ export class PaginatorConfigurableExample implements AfterViewInit {
   }
     private initBtnPages() {
     if (this.demoPages) {
-      const hasShowCustomPageButtonsAttr = this.demoPages.nativeElement.attributes.showcustompagebuttons;
-      const isShowBtnPages = this.demoPages.nativeElement.attributes.showcustompagebuttons.value === 'false' ? false : true;
+      // const hasShowCustomPageButtonsAttr = this.demoPages.nativeElement.attributes.showcustompagebuttons;
+      // const isShowBtnPages = this.demoPages.nativeElement.attributes.showcustompagebuttons.value === 'false' ? false : true;
       // showCustomPageBtns = true
-      if (isShowBtnPages || hasShowCustomPageButtonsAttr === undefined) {
-        const defaultMode = 1;
-        const hasShowCustomModeAttr = this.demoPages.nativeElement.attributes.showcustommode;
-        let showMode = this.demoPages.nativeElement.attributes.showcustommode.value === '1' ? 1 : 0;
-        showMode = hasShowCustomModeAttr === undefined ? defaultMode : showMode;
+      if (this.isShowBtnPages) {
+        // const defaultMode = 1;
+        // const hasShowCustomModeAttr = this.demoPages.nativeElement.attributes.showcustommode;
+        // let showMode = this.demoPages.nativeElement.attributes.showcustommode.value === '1' ? 1 : 0;
+        // showMode = hasShowCustomModeAttr === undefined ? defaultMode : showMode;
         // default = 0, 0 Render all Btns, 1 Render the buttons you set.
         this.createBtnRange(this.defaultMode);
       }
