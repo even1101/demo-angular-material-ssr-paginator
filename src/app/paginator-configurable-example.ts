@@ -26,7 +26,7 @@ export class PaginatorConfigurableExample implements AfterViewInit {
   pageEvent: PageEvent;
   private isShowBtnPages = true;
   private defaultMode = 1; // 0: Render all button, 1: Render the buttons you set.
-  private gap = 2; // If the number is exceeded, the appropriate value will be calculated.
+  private gap = 5; // If the number is exceeded, the appropriate value will be calculated.
   private addedBtns: Array<any> = [];
    constructor(private ren: Renderer2) {}
   ngAfterViewInit(): void {
@@ -120,34 +120,34 @@ export class PaginatorConfigurableExample implements AfterViewInit {
     this.ren.insertBefore(parentNode, linkBtn, refNode);
     this.addedBtns.push(linkBtn);
   }
-  private calculationGapBtn(totalPage: number) {
-    const res = { start: 0, end: 0};
-    const gap = this.gap;
-    const start = this.myPaginator.pageIndex - (gap - 1);
-    const end = this.myPaginator.pageIndex + (gap + 1);
+  // private calculationGapBtn(totalPage: number) {
+  //   const res = { start: 0, end: 0};
+  //   const gap = this.gap;
+  //   const start = this.myPaginator.pageIndex - (gap - 1);
+  //   const end = this.myPaginator.pageIndex + (gap + 1);
 
-    res.start = this.calculationStartNumber(start, gap);
-    res.end = this.calculationEndNumber(end, totalPage, gap);
+  //   res.start = this.calculationStartNumber(start, gap);
+  //   res.end = this.calculationEndNumber(end, totalPage, gap);
 
-    return res;
-  }
+  //   return res;
+  // }
 
-  private calculationStartNumber(start: number, gap: number) {
-    if (start < 1) {
-      start = start + 1;
-      start = this.calculationStartNumber(start, gap);
-    }
-    return start;
-  }
+  // private calculationStartNumber(start: number, gap: number) {
+  //   if (start < 1) {
+  //     start = start + 1;
+  //     start = this.calculationStartNumber(start, gap);
+  //   }
+  //   return start;
+  // }
 
-  private calculationEndNumber(end: number, totalPage: number, gap: number) {
-    this.myPaginator.nextPage
-    if (end > totalPage) {
-      end = end - 1;
-      end = this.calculationEndNumber(end, totalPage, gap);
-    }
-    return end;
-  }
+  // private calculationEndNumber(end: number, totalPage: number, gap: number) {
+  //   this.myPaginator.nextPage
+  //   if (end > totalPage) {
+  //     end = end - 1;
+  //     end = this.calculationEndNumber(end, totalPage, gap);
+  //   }
+  //   return end;
+  // }
 }
 
 
